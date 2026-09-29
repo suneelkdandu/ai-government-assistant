@@ -1,0 +1,5 @@
+python-dotenv==Version: 1.2.3
+google-genai==Version: 2.24.0
+streamlit==Version: 1.64.0
+pypdf==Version: 6.19.0
+chromadb==Version: 1.5.9
