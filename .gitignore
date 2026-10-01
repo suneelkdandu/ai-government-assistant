@@ -64,3 +64,6 @@ htmlcov/
 # ---------------------------------------------------------
 
 *.log
+
+# Streamlit secrets
+.streamlit/secrets.toml

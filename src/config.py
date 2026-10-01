@@ -20,8 +20,12 @@ CHROMA_PATH = BASE_DIR / "chroma_db"
 
 
 # ---------------------------------------------------------
-# LOAD ENVIRONMENT VARIABLES
+# LOAD LOCAL ENVIRONMENT
 # ---------------------------------------------------------
+
+# Used during local development.
+# In Streamlit Community Cloud, environment variables
+# supplied through secrets can be used instead.
 
 load_dotenv(ENV_PATH)
 
@@ -81,19 +85,36 @@ DEFAULT_TOP_K = 5
 
 
 # ---------------------------------------------------------
-# VALIDATION
+# CONFIGURATION VALIDATION
 # ---------------------------------------------------------
 
 def validate_config():
     """
-    Validate the essential application settings.
+    Validate essential GovAssist configuration.
     """
 
     if not GEMINI_API_KEY:
 
         raise ValueError(
-            "GEMINI_API_KEY is missing. "
-            "Check your .env file."
+            "GEMINI_API_KEY is missing."
+        )
+
+    if not GENERATION_MODEL:
+
+        raise ValueError(
+            "GENERATION_MODEL is missing."
+        )
+
+    if not EMBEDDING_MODEL:
+
+        raise ValueError(
+            "EMBEDDING_MODEL is missing."
+        )
+
+    if not COLLECTION_NAME:
+
+        raise ValueError(
+            "COLLECTION_NAME is missing."
         )
 
     if CHUNK_SIZE <= 0:
